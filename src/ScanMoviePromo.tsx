@@ -6,33 +6,46 @@ import { FeatureShowcase } from './scenes/FeatureShowcase';
 import { MovieCarousel } from './scenes/MovieCarousel';
 import { ClosingScene } from './scenes/ClosingScene';
 
+/**
+ * ScanMovie Promo Video - Apple-Style Product Reveal
+ * 
+ * Scene breakdown (60fps, 30 seconds total = 1800 frames):
+ * 
+ * 1. Intro (0-6s / 0-360f): Logo reveal with letter-by-letter animation
+ * 2. App Reveal (6-12s / 360-720f): MacBook mockup with real ScanMovie UI
+ * 3. Feature Showcase (12-20s / 720-1200f): Four key features with staggered cards
+ * 4. Movie Carousel (20-26s / 1200-1560f): Trending movies with parallax scroll
+ * 5. Closing (26-30s / 1560-1800f): CTA with breathing typography
+ */
+
 export const ScanMoviePromo: React.FC = () => {
   return (
     <AbsoluteFill>
+      {/* Cinematic gradient background with film grain */}
       <GradientBackground />
       
-      {/* Intro: 0-150 frames (0-5s) */}
-      <Sequence from={0} durationInFrames={150}>
+      {/* Scene 1: Intro - Logo & tagline reveal */}
+      <Sequence from={0} durationInFrames={360}>
         <IntroScene />
       </Sequence>
       
-      {/* App Reveal: 150-330 frames (5-11s) */}
-      <Sequence from={150} durationInFrames={180}>
+      {/* Scene 2: App Reveal - MacBook with real ScanMovie UI */}
+      <Sequence from={360} durationInFrames={360}>
         <AppReveal />
       </Sequence>
       
-      {/* Feature Showcase: 330-570 frames (11-19s) */}
-      <Sequence from={330} durationInFrames={240}>
+      {/* Scene 3: Feature Showcase - Key features with glass cards */}
+      <Sequence from={720} durationInFrames={480}>
         <FeatureShowcase />
       </Sequence>
       
-      {/* Movie Carousel: 570-750 frames (19-25s) */}
-      <Sequence from={570} durationInFrames={180}>
+      {/* Scene 4: Movie Carousel - Trending movies with parallax */}
+      <Sequence from={1200} durationInFrames={360}>
         <MovieCarousel />
       </Sequence>
       
-      {/* Closing: 750-900 frames (25-30s) */}
-      <Sequence from={750} durationInFrames={150}>
+      {/* Scene 5: Closing - CTA and website */}
+      <Sequence from={1560} durationInFrames={240}>
         <ClosingScene />
       </Sequence>
     </AbsoluteFill>
